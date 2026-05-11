@@ -2,12 +2,18 @@
 /** @type {import('@stryker-mutator/api/core').PartialStrykerOptions} */
 const config = {
   _comment:
-    "This config was generated using 'stryker init'. Please take a look at: https://stryker-mutator.io/docs/stryker-js/configuration/ for more information.",
+    "Configuração do StrykerJS para o projeto operacoes-mutante.",
   packageManager: "npm",
-  reporters: ["html", "clear-text", "progress"],
+  reporters: ["html", "clear-text", "progress", "json"],
   testRunner: "jest",
-  testRunner_comment:
-    "Take a look at https://stryker-mutator.io/docs/stryker-js/jest-runner for information about the jest plugin.",
+  jest: {
+    projectType: "custom",
+    configFile: "package.json",
+    enableFindRelatedTests: true
+  },
   coverageAnalysis: "perTest",
+  mutate: ["src/**/*.js"],
+  concurrency: 2,
+  timeoutMS: 60000,
 };
 export default config;
